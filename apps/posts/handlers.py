@@ -1,5 +1,8 @@
 import tornado.web
 
-class IndexHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('posts/index.html')
+from utils.handlerBase import HandlerBase
+
+class IndexHandler(HandlerBase):
+    @tornado.web.authenticated
+    async def get(self):
+        await self.render('posts/index.html')
