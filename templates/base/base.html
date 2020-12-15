@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% end %}</title>
+    <link rel="stylesheet" href="{{ static_url('css/base/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/"><i class="fa fa-camera-retro fa-lg"></i>Instagram</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">发现</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">用户档案</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog fa-fw" aria-hidden="true"></i>更多
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">聊天室</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a style="display: inline-block" class="nav-link" href="#">登录</a>/<a style="display: inline-block" class="nav-link" href="#">注册</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">上传图片</button>
+        </form>
+      </div>
+    </nav>
+</div>
+<div class="main">
+    {% block main %}
+    {% end %}
+</div>
+<script src="{{ static_url('js/base/jquery-3.3.1.slim.min.js') }}"></script>
+<script src="{{ static_url('js/base/popper.min.js') }}"></script>
+<script src="{{ static_url('js/base/bootstrap.min.js') }}"></script>
+</body>
+</html>
