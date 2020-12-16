@@ -1,0 +1,26 @@
+{% extends '../base/base.html' %}
+
+{% block title %}
+聊天室
+{% end %}
+
+{% block main %}
+<div class="alert alert-warning" role="alert">
+  请在这里畅快淋漓的聊吧!
+</div>
+<div id="box">
+    {% for message in messages %}
+    {% raw message['html'] %}
+    {% end %}
+</div>
+<div class="chat">
+    <form action="javascript:void(0);" method="post" style="display: inline-flex">
+        <input id="inp" type="text" class="form-control" placeholder="请输入聊天内容" style="width: 400px;">
+        <button class="btn btn-outline-secondary" type="submit" onclick="sendInp()" onkeypress="sendInp()">发送</button>
+    </form>
+</div>
+{% end %}
+
+{% block src %}
+<script src="{{ static_url('js/room/room.js') }}"></script>
+{% end %}

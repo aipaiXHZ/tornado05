@@ -1,0 +1,14 @@
+{% extends '../base/base.html' %}
+
+{% block title %}
+post
+{% end %}
+
+{% block main %}
+<div class="alert alert-success" role="alert">
+  post id {{ post.id }} upload by <a href="/profile?name={{ post.user.username }}" style="text-decoration: none">{{ post.user.username }}</a>
+</div>
+<div class="image">
+    <img src="{{ static_url(post.image_url) }}" alt="">
+</div>
+{% end %}

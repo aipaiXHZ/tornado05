@@ -1,0 +1,50 @@
+{% extends '../base/base.html' %}
+
+{% block title %}
+发现
+{% end %}
+
+{% block main %}
+<div class="alert alert-info" role="alert">
+  像星际迷航一样发现新旅程!
+</div>
+<div class="image">
+    {% for post in posts %}
+    <a href="/post/{{ post.id }}">
+        <img src="{{ static_url(post.thrumb_url) }}" alt="..." class="img-thumbnail">
+    </a>
+    {% end %}
+</div>
+<div class="page">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if pg.has_previous %}{# 有没有上一页 #}
+            <li class="page-item">
+                <a class="page-link" href="/explore?page={{ pg.previous_page }}{# 上一页的页数 #}&number={{ number }}">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0);">Previous</a>
+            </li>
+            {% end %}
+            {% for n in range(1,pg.pages + 1) %}
+            <li class="page-item{% if n==page_number %} active{% end %}">
+                <a class="page-link" href="/explore?page={{ n }}&number={{ number }}">{{ n }}</a>
+            </li>
+            {% end %}
+            {% if pg.has_next %}{# 有没有下一页 #}
+            <li class="page-item">
+                <a class="page-link" href="/explore?page={{ pg.next_page }}{# 下一页的页数 #}&number={{ number }}">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0);">Next</a>
+            </li>
+            {% end %}
+        </ul>
+    </nav>
+{# pg.total总条数，假如你有26条数据就是26 #}
+{# pg.pages总页数 #}
+{# pg.items当前页的所有数据 #}
+</div>
+{% end %}

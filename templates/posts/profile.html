@@ -1,0 +1,28 @@
+{% extends '../base/base.html' %}
+
+{% block title %}
+用户档案
+{% end %}
+
+{% block main %}
+<div class="like">
+    <div class="card">
+      <h3 class="card-header">{{ name }}用户喜欢的图片</h3>
+
+    </div>
+</div>
+<div class="upload">
+    <div class="card">
+      <h3 class="card-header">{{ name }}用户上传的图片</h3>
+      <div class="row">
+        {% for post in posts %}
+        <div class="col-3" style="border: 0;">
+          <a href="/post/{{ post.id }}">
+              <img class="card-img-top" src="{{ static_url(post.image_url) }}" alt="Card image cap">
+          </a>
+        </div>
+        {% end %}
+      </div>
+    </div>
+</div>
+{% end %}

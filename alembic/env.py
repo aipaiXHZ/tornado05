@@ -21,8 +21,8 @@ import os
 import sys
 BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
-from dbs.modelBase import ModelBase
-target_metadata=ModelBase.metadata#db代表的就是咱们写模型类的那个文件
+from dbs import models
+target_metadata=models.Base.metadata#db代表的就是咱们写模型类的那个文件
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

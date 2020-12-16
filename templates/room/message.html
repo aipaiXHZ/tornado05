@@ -1,0 +1,10 @@
+<div class="message" id="m{{ chat['id'] }}">
+    <span class="badge badge-primary">{{ chat['username'] }}</span>:{% module linkify(chat['body']) %}
+    {% if chat['img_url'] %}
+    <div>
+        <a href="/post/{{ chat['post_id'] }}">
+            <img src="{{ static_url(chat['img_url']) }}" alt="">
+        </a>
+    </div>
+    {% end %}
+</div>

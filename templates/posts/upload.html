@@ -1,0 +1,20 @@
+{% extends '../base/base.html' %}
+
+{% block title %}
+上传
+{% end %}
+
+{% block main %}
+<div class="alert alert-info" role="alert">
+  图片上传
+</div>
+<div class="file">
+    <form action="" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+        <input type="submit" value="上传">
+      </div>
+    </form>
+</div>
+{% end %}

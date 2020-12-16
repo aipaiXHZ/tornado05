@@ -8,5 +8,21 @@
 <div class="alert alert-success" role="alert">
     欢迎来到首页!
 </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+        {% for post in posts %}
+        <figure class="figure">
+          <img src="{{ static_url(post.image_url) }}" class="figure-img img-fluid rounded" alt="...">
+        </figure>
+        {% end %}
+    </div>
+    <div class="col-4">
+        <figure class="figure">
+          <img src="{{ static_url('image/posts/三体.jpg') }}" class="figure-img img-fluid rounded" alt="...">
+          <figcaption class="figure-caption">给岁月以文明，而不是给文明以岁月.</figcaption>
+        </figure>
+    </div>
+  </div>
+</div>
 {% end %}

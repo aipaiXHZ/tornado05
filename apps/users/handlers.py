@@ -27,7 +27,7 @@ class LoginHandler(HandlerBase):
             else:
                 self.redirect('/login?msg=请输入5-20个字符的用户名')
                 return
-        if not self.db.query(Users).filter(Users.username==username).first():
+        if not self.db.query(Users).filter(Users.username==username,Users.is_deleted==False).first():
             if next:
                 self.redirect('/login?next=%s&msg=用户不存在'%next)
                 return
@@ -49,7 +49,7 @@ class LoginHandler(HandlerBase):
             else:
                 self.redirect('/login?msg=密码的长度需在6～20位以内')
                 return
-        user=self.db.query(Users).filter(Users.username==username).first()
+        user=self.db.query(Users).filter(Users.username==username,Users.is_deleted==False).first()
         if password != user.password:
             if next:
                 self.redirect('/login?next=%s&msg=密码错误'%next)
@@ -80,7 +80,7 @@ class RegisterHandler(HandlerBase):
         if not re.match('^\w{5,20}$', username):
             self.redirect('/register?msg=请输入5-20个字符的用户名')
             return
-        if self.db.query(Users).filter(Users.username==username).first():
+        if self.db.query(Users).filter(Users.username==username,Users.is_deleted==False).first():
             self.redirect('/register?msg=用户已存在')
             return
         password=self.get_body_argument('password','').strip()
